@@ -2,6 +2,19 @@
 
 using namespace std;
 
+void swap(int* a, int* b) {
+	int* temp = a;
+	*a = *b;
+	*b = *temp;
+}
+
+void baleg(int* yarr, int size) {
+	
+	for (int i = 1; i < size; i += 2) {
+		cout << *yarr + i << "\n";
+	}
+}
+
 int main() {
 
 	int a = 100;
@@ -33,9 +46,25 @@ int main() {
 	cout << "c is eventually retrieving what is in memory location " << **&c << endl;
 	cout << "the value of a is in memory location " << &a << endl;
 
-	int x;
-	cout << "Type in a numebr to finish" << "\n";
-	cin >> x;
+	int x = 10;
+	int *w = &x;
+	int y = 20;
+	int *z = &y;
 
+	cout << "Value of x: " << x << "\n";
+	cout << "Value of y: " << y << "\n";
+
+	swap(*w, *z);
+	
+	cout << "Value of x: " << x << "\n";
+	cout << "Value of y: " << y << "\n";
+
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	baleg(arr, sizeof(arr)/sizeof(*arr));
+
+	int xe;
+	cout << "Type in a numebr to finish" << "\n";
+	cin >> xe;
+	
 	return 0;
 }
